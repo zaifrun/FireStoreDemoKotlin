@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "350111149612",
+    "firebase_url": "https://firestoredemo-33caa.firebaseio.com",
+    "project_id": "firestoredemo-33caa",
+    "storage_bucket": "firestoredemo-33caa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350111149612:android:b92d0bebcc5c5370",
+        "android_client_info": {
+          "package_name": "org.example.firestoredemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350111149612-9datc3l4b4eloejj79134ss9qb64q0b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC--KCBkgL2zoXx3m6FF2AfRMtp7_sNjv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350111149612-9datc3l4b4eloejj79134ss9qb64q0b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350111149612:android:9bc2bc899495e62d56eb89",
+        "android_client_info": {
+          "package_name": "org.pondar.firestoredemokotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350111149612-9datc3l4b4eloejj79134ss9qb64q0b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC--KCBkgL2zoXx3m6FF2AfRMtp7_sNjv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350111149612-9datc3l4b4eloejj79134ss9qb64q0b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
