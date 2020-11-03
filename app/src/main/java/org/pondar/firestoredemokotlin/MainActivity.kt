@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.content_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -137,10 +139,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(applicationContext)
 
+        db = Firebase.firestore
+
         addButton.setOnClickListener { addBook() }
         delete.setOnClickListener { deleteSelected() }
         deleteAll.setOnClickListener { deleteAll() }
-        db = FirebaseFirestore.getInstance()
 
         books = ArrayList()
         //now check to see if have have something in the bag
@@ -159,7 +162,7 @@ class MainActivity : AppCompatActivity() {
         adapter = BookAdapter(this, books, checked)
         booklist.adapter = adapter
         registerForContextMenu(booklist)
-        val query: Query = db.collection("books")
+        val query = db.collection("books")
 
         registration = query.addSnapshotListener(listener)
 
