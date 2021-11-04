@@ -17,7 +17,7 @@ import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.content_main.*
+import org.pondar.firestoredemokotlin.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -30,10 +30,13 @@ class MainActivity : AppCompatActivity() {
     private var registration: ListenerRegistration? = null
     private var context: Context? = null
 
+    private lateinit var binding : ActivityMainBinding
+
+
     private fun addBook() {
         val newBook = Book(
-            author = editAuthor.text.toString(),
-            title = editTitle.text.toString()
+            author = binding.content.editAuthor.text.toString(),
+            title = binding.content.editTitle.text.toString()
         )
         db.collection("books")
             .add(newBook)
@@ -136,14 +139,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
-        setContentView(R.layout.activity_main)
-        FirebaseApp.initializeApp(applicationContext)
 
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        FirebaseApp.initializeApp(applicationContext)
         db = Firebase.firestore
 
-        addButton.setOnClickListener { addBook() }
-        delete.setOnClickListener { deleteSelected() }
-        deleteAll.setOnClickListener { deleteAll() }
+        binding.content.addButton.setOnClickListener { addBook() }
+        binding.content.delete.setOnClickListener { deleteSelected() }
+        binding.content.deleteAll.setOnClickListener { deleteAll() }
 
         books = ArrayList()
         //now check to see if have have something in the bag
@@ -160,8 +166,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         adapter = BookAdapter(this, books, checked)
-        booklist.adapter = adapter
-        registerForContextMenu(booklist)
+        binding.content.booklist.adapter = adapter
+        registerForContextMenu(binding.content.booklist)
         val query = db.collection("books")
 
         registration = query.addSnapshotListener(listener)

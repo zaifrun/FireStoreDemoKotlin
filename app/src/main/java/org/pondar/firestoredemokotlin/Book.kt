@@ -3,7 +3,9 @@ package org.pondar.firestoredemokotlin
 import android.os.Parcelable
 import com.google.firebase.firestore.Exclude
 
-import kotlinx.android.parcel.Parcelize
+//import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
+
 
 //The exclude thing on book is because we want to have an id number in the book
 //class, but do not want to save it to firebase as firebase will automatically
